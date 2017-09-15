@@ -1,17 +1,14 @@
-/* Contador de palavras
- *
- * Este programa recebera uma serie de caracteres representando palavras em sua
- * entrada. Ao receber um caractere fim de linha ('\n'), deve imprimir na tela o
- * numero de palavras separadas que recebeu e, apos, encerrar.
- */
-
 #include <stdio.h>
 
 int main() {
+  int a[5];
+  int n;
 
-  int x, y;
+  scanf("%d %d %d %d %d %d", &(a[0]), &(a[1]), &(a[2]), &(a[3]), &(a[4]), &n);
 
-  scanf("%d %d\n", &x, &y);
-  printf("%d\n", x + 200);
+  for (int i=0; i<n; i++) {
+    /* Imprime resultado da n-esima iteracao do scheduler */
+  }
+
   return 0;
 }
