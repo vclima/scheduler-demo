@@ -1,47 +1,45 @@
-# Um pequeno somador
+# Scheduler em tempo real - uma simulacao
 
-Esta é uma tarefa-template, que deve ser modificada para ser convertida em
-outras atividades. Aqui, fica o enunciado da tarefa, ou seja, sua descrição, com
-instruções claras sobre o problema que deve ser resolvido. Esta tarefa consiste
-em fazer um somador. Ele deverá receber uma linha de texto contendo dois números
-inteiros. Essa linha se encerra com caractere fim de linha `\n`. O programa
-deverá imprimir na saída padrão a soma desses dois números
+Nesta tarefa, criaremos uma pequena simulação de um scheduler de tempo real. Em
+nossa simulação, controlaremos 5 temporizadores específicos, numerados de 0 a 4.
+Cada um deles está
+vinculado a uma tarefa que é executada periodicamente a cada `N[i]` iterações de
+um laço `for`
+(onde `i` é o número do temporizador). O
+programa deve simular a execução de um determinado número de iterações do
+scheduler, e imprimir na tela, a cada linha, os números das tarefas que serão
+executadas naquela iteração.
 
-## Como fazer uma outra tarefa usando este template
-1. Crie um repositório vazio no Github (sem inicializar o readme nem a licença)
-   com o nome da sua tarefa usando a interface web. Vamos chamar esse
-   repositório com o nome fantasma de `foobar`.
+Veja que este programa simula a execução de um scheduler de tempo real, exceto
+pela ausência do temporizador com interrupção. Nesta simulação, cada iteração do
+programa representa um evento periódico de interrupção.
 
-1. Faça um clone deste repositório para um diretório com o nome de sua tarefa.
-   Se sua tarefa se chama foobar, então a linha de comando é:
-   `git clone https://github.com/Beethoven-ED/template_unit_test.git foobar`
+O programa receberá como entrada uma série de 6 números. Os primeiros 5
+representam a periodicidade de cada uma das 5 tarefas. O sexto número é a
+quantidade de iterações que devem ser simuladas.
 
-1. Desvincule sua cópia local deste repositório:
-   `git remote remove origin`
+Para cada iteração, o programa deve imprimir na tela o número das tarefas que
+serão executadas nessa mesma iteração, seguidos do caractere fim-de-linha `\n`.
+Por exemplo, se as tarefas 3, 2 e 0 serão executadas, então o programa deve
+imprimir `023\n'. Se nenhuma tarefa será executada, então o programa deve
+imprimir um traço seguido de fim-de-liha `-\n'.
 
-1. Vincule sua cópia local ao seu repositório no github:
-   `git remote add origin https://github.com/seu_username/foobar.git`
+Assuma que todos os contadores de tarefas começam num estado inicial nulo.
+Assim, uma tarefa com periodicidade 3 deve ser executada pela primeira vez na
+terceira iteração.
 
-1. Faça as modificações necessárias no código. Use `git add` e `git commit`
-   sempre que necessário. Lembre-se de:
-   * Modificar o enunciado
-   * Adicionar testes de unidade
-   * Adicionar um programa-template, se achar necessário.
-   * Testar se `make` e `make test` estão funcionando adequadamente.
-
-1. Quando terminar, envie suas modificações ao repositório: `git push
-   --set-upstream origin master` (a flag `--set-upstream origin master` só será
-   necessária da primeira vez que fizer o `push`).
-
-1. Verifique se as modificações estão todas no Github, no endereço correto.
+É permitido ter tarefas com periodicidade 1 (que são executadas em todas as
+iterações), mas não é possível ter tarefas com periodicidade 0 ou negativas. Não
+há testes com essas entradas inválidas porque o tratamento de entradas inválidas
+não é um objetivo deste exercício.
 
 ## Exemplos
 
 Entrada | Saida
 ------- | -----
-`1 2` | `3`
-`100 1` | `101`
-
+`1 1 1 1 1 2` | `01234\n01234\n`
+`1 1 2 2 1 3` | `014\n01234\n`
+`2 2 2 2 3 4` | `-\n0123\n4\n0123\n`
 
 ## Instruções adicionais
 
